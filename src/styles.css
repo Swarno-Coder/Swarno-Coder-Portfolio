@@ -1,125 +1,144 @@
-/**
-* CSS file to hold styles that apply across the application
-*/
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@200;400;600;800&display=swap");
+:root {
+  color-scheme: dark;
+}
 
 html,
 body {
-  font-family: "Montserrat", sans-serif;
-  height: 100%;
   margin: 0;
-  overflow-x: hidden;
   padding: 0;
   width: 100%;
+  background: radial-gradient(circle at 10% 10%, #0f1f4f 0%, #080816 42%, #05050a 100%);
+  color: #f5f6ff;
+  font-family: "Outfit", sans-serif;
+  overflow-x: hidden;
 }
 
-div#main {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-}
-
-section {
+.app-shell {
   position: relative;
-  width: 100vw;
-}
-
-section.min-height {
   min-height: 100vh;
+  padding-bottom: 12vh;
 }
 
-section.padding {
-  padding: 5rem 0;
-}
-
-section img.background {
-  height: 100%;
-  left: 50%;
-  object-fit: cover;
+.scene-stack {
+  position: fixed;
+  inset: 0;
   pointer-events: none;
-  position: absolute;
-  top: 0;
-  transform: translate(-50%, 0);
-  width: 100vmax;
   z-index: -1;
 }
 
-h1 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 7rem;
-  font-weight: 400;
-  line-height: 0.8;
+.scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.scene-babylon {
+  opacity: 0.62;
+}
+
+.panel {
+  width: min(980px, 90vw);
+  margin: 0 auto;
+  min-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero {
+  min-height: 95vh;
+  gap: 1.4rem;
+}
+
+.eyebrow {
+  letter-spacing: 0.22em;
+  font-weight: 600;
   margin: 0;
+  color: #9ec6ff;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.8rem, 10vw, 6.4rem);
+  line-height: 0.95;
+  background: linear-gradient(120deg, #f5f7ff 0%, #adbeff 45%, #63e8ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 h2 {
-  font-size: 2rem;
-  font-weight: 400;
   margin: 0;
-  padding-top: 1rem;
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem);
 }
 
 h3 {
-  font-weight: 400;
-  font-size: 1.25rem;
   margin: 0;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
 }
 
 p {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 0;
-  font-weight: 300;
+  margin: 0;
+  color: #dae1ff;
+  line-height: 1.65;
 }
 
-p.large {
-  font-size: 24px;
+.lead {
+  max-width: 640px;
+  font-size: clamp(1rem, 1.9vw, 1.3rem);
 }
 
-p.small {
-  font-size: 15px;
-}
-
-hr {
-  margin: 2.5rem;
-}
-
-li {
-  line-height: 1.7;
-}
-
-li::marker {
-  color: #4e567e;
-}
-
-a {
-  color: black;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #4e567e;
-}
-
-.container {
+.cards-grid {
   display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 330px 300px;
-  margin: 20px auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
 }
 
-.container .box {
-  border-radius: 10px;
-  border: 1px solid rgb(204, 204, 204);
+.frosted-card {
+  padding: 1.2rem;
+  border: 1px solid rgba(170, 186, 255, 0.3);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(34, 40, 84, 0.78), rgba(11, 12, 28, 0.78));
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 24px 16px;
-  text-align: center;
+  gap: 0.8rem;
 }
 
-img.socialIcon {
-  height: 30px;
-  width: 30px;
+.frosted-card a {
+  width: fit-content;
+  color: #7ce8ff;
+  font-weight: 600;
+}
+
+.frosted-card a:hover {
+  color: #a8ffea;
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.chip {
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(143, 188, 255, 0.42);
+  background: rgba(26, 41, 90, 0.56);
+  color: #dce8ff;
+}
+
+.footer-panel {
+  min-height: 55vh;
+  margin-bottom: 3rem;
+}
+
+.contact a {
+  color: #94f8ff;
 }
