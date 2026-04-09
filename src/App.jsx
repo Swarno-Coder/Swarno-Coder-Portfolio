@@ -38,7 +38,7 @@ const App = () => {
   useEffect(() => {
     const canvas = threeCanvasRef.current;
     if (!canvas) {
-      return undefined;
+      return;
     }
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
@@ -76,7 +76,7 @@ const App = () => {
       new THREE.BufferGeometry().setAttribute(
         "position",
         new THREE.Float32BufferAttribute(
-          Array.from({ length: 1500 }, () => (Math.random() - 0.5) * 20),
+          Array.from({ length: 900 }, () => (Math.random() - 0.5) * 20),
           3
         )
       ),
@@ -123,7 +123,7 @@ const App = () => {
   useEffect(() => {
     const canvas = babylonCanvasRef.current;
     if (!canvas) {
-      return undefined;
+      return;
     }
 
     const engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
